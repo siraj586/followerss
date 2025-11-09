@@ -1,8 +1,5 @@
-  body {
-      font-family: 'Inter', sans-serif;
-      background-color: #fafafa;
-    }
-
+  /* Instagram-specific styles */
+    
     /* Welcome Section */
     .welcome-section {
       background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
@@ -33,26 +30,49 @@
     /* Features Section */
     .features-section {
       padding: 5rem 0;
-      background-color: #fff;
+      background: var(--muted-surface);
+      border-top: 1px solid var(--section-divider);
+      border-bottom: 1px solid var(--section-divider);
+    }
+
+    .section-title {
+      color: var(--section-title-color, #1e293b);
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, var(--instagram-color-1), var(--instagram-color-2), var(--instagram-color-3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .section-subtitle {
+      color: var(--section-subtitle-color, #64748b);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .feature-card {
       text-align: center;
       padding: 2rem;
-      background: #fff;
+      background: var(--card-bg, #fff);
       border-radius: 1rem;
       box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
       margin-bottom: 2rem;
-      border: 1px solid #eee;
+      border: 1px solid var(--section-divider);
     }
 
     .feature-card:hover {
       transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     }
 
-    .feature-card i {
-      background: linear-gradient(45deg, #833ab4, #fd1d1d);
+    .feature-icon {
+      background: linear-gradient(45deg, var(--instagram-color-1, #833ab4), var(--instagram-color-2, #fd1d1d));
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-size: 3rem;
@@ -62,33 +82,58 @@
     /* Pricing Section */
     .pricing-section {
       padding: 5rem 0;
-      background-color: #fafafa;
+      background: var(--muted-surface);
+      border-top: 1px solid var(--section-divider);
+      border-bottom: 1px solid var(--section-divider);
+    }
+
+    .card-title {
+      color: var(--text-color);
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      font-weight: 600;
+    }
+
+    .feature-title {
+      color: var(--text-color);
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      font-weight: 600;
+    }
+
+    .feature-text {
+      color: var(--section-subtitle-color);
+      line-height: 1.6;
     }
 
     .pricing-card {
       text-align: center;
       padding: 2rem;
-      background: #fff;
+      background: var(--card-bg, #fff);
       border-radius: 1rem;
       box-shadow: 0 2px 15px rgba(0,0,0,0.05);
       position: relative;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
       margin-bottom: 2rem;
+      color: var(--text-color);
+      border: 1px solid var(--section-divider);
     }
 
     .pricing-card:hover {
       transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     }
 
     .pricing-card.popular {
-      border: 2px solid #833ab4;
+      border: 2px solid var(--instagram-color-1);
+      box-shadow: 0 5px 30px rgba(131, 58, 180, 0.15);
     }
 
     .popular-badge {
       position: absolute;
       top: -12px;
       right: 20px;
-      background: linear-gradient(45deg, #833ab4, #fd1d1d);
+      background: linear-gradient(45deg, var(--instagram-color-1, #833ab4), var(--instagram-color-2, #fd1d1d));
       color: white;
       padding: 0.5rem 1rem;
       border-radius: 20px;
@@ -112,13 +157,13 @@
 
     .features-list li {
       padding: 0.5rem 0;
-      color: #666;
+      color: var(--text-color);
     }
 
     /* FAQ Section */
     .faq-section {
       padding: 5rem 0;
-      background-color: #fff;
+      background-color: var(--muted-surface, #fff);
     }
 
     .accordion-button:not(.collapsed) {

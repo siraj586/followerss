@@ -9,6 +9,15 @@
   --secondary-color: #1e293b;
   --background-light: #f8fafc;
   --text-color: #1e293b;
+  --navbar-bg: #ffffff;
+  --card-bg: #ffffff;
+  --page-bg: linear-gradient(180deg,#f8fafc 0%,#ffffff 100%);
+  --footer-bg: #1e293b;
+  --footer-text: #ffffff;
+  --muted-surface: #f3f4f6;
+  --section-title-color: var(--secondary-color);
+  --section-subtitle-color: #64748b;
+  --section-divider: rgba(0,0,0,0.06);
   --tiktok-color-1: #25F4EE;
   --tiktok-color-2: #FE2C55;
   --instagram-color-1: #833ab4;
@@ -16,36 +25,55 @@
   --instagram-color-3: #fcb045;
 }
 
+/* Dark theme variables - applied when [data-theme="dark"] is set on <html> */
+[data-theme="dark"] {
+  --primary-color: #1e3a8a;
+  --secondary-color: #e6eef8;
+  --background-light: #0b1220;
+  --text-color: #e6eef8;
+  --navbar-bg: #071028;
+  --card-bg: #0f1630;
+  --page-bg: linear-gradient(180deg,#071028 0%,#0b1220 100%);
+  --footer-bg: #071028;
+  --footer-text: #94a3b8;
+  --muted-surface: rgba(255,255,255,0.03);
+  --section-title-color: #93c5fd; /* brighter blue for headings in dark mode */
+  --section-subtitle-color: #9aaecb; /* muted light for subtitles */
+  --section-divider: rgba(255,255,255,0.04);
+}
+
 body {
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text-color);
-  background-color: var(--background-light);
+  background: var(--page-bg);
   padding-top: 76px; /* Account for fixed navbar */
   line-height: 1.6;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 /* Navbar Styles */
 .navbar {
-  background-color: #ffffff !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--navbar-bg) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .navbar-brand {
-  color: #2563eb !important;
+  color: var(--primary-color) !important;
   font-weight: 600;
 }
 
 .nav-link {
-  color: #1e293b !important;
+  color: var(--text-color) !important;
   transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #2563eb !important;
+  color: var(--primary-color) !important;
 }
 
 .nav-link.active {
-  color: #2563eb !important;
+  color: var(--primary-color) !important;
 }
 
 /* Hero Section */
@@ -94,19 +122,22 @@ body {
 /* Services Section */
 .services-section {
   padding: 5rem 0;
-  background-color: white;
+  background: transparent;
+  /* subtle surface to separate the services area */
+  border-top: 1px solid var(--section-divider);
+  padding-top: 3.5rem;
 }
 
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: var(--secondary-color);
+  color: var(--section-title-color);
 }
 
 .section-subtitle {
   font-size: 1.1rem;
-  color: #64748b;
+  color: var(--section-subtitle-color);
   max-width: 600px;
   margin: 0 auto 3rem;
 }
@@ -168,12 +199,12 @@ body {
 }
 
 .feature-card {
-  background: white;
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 1rem;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #e2e8f0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.25s ease;
+  border: 1px solid rgba(226,232,240,0.12);
 }
 
 .feature-card:hover {
@@ -190,7 +221,8 @@ body {
 /* Testimonials Section */
 .testimonials-section {
   padding: 5rem 0;
-  background-color: white;
+  background: transparent;
+  border-top: 1px solid var(--section-divider);
 }
 
 .testimonial-grid {
@@ -201,11 +233,12 @@ body {
 }
 
 .testimonial-card {
-  background: var(--background-light);
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.25s ease;
+  color: var(--text-color);
 }
 
 .testimonial-card:hover {
@@ -282,9 +315,10 @@ body {
 
 /* Footer */
 .footer-section {
-  background-color: var(--secondary-color);
-  color: white;
+  background: var(--footer-bg);
+  color: var(--footer-text);
   padding: 4rem 0 2rem;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 .footer-section h3 {
@@ -302,7 +336,7 @@ body {
 }
 
 .footer-links a {
-  color: #e2e8f0;
+  color: rgba(226,232,240,0.9);
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -377,7 +411,7 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 25px;
-  background: #fff;
+  background: var(--card-bg);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -415,7 +449,7 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 25px;
-  background: #fff;
+  background: var(--card-bg);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .tiktok-logo {
@@ -447,11 +481,12 @@ body {
   padding: 2rem;
 }
 .welcome-message {
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  background: linear-gradient(135deg, var(--primary-color), #3b82f6);
   color: white;
   text-align: center;
   padding: 3rem 1rem;
   margin-bottom: 2rem;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 .welcome-message span {
@@ -466,14 +501,15 @@ body {
 .likes,
 .secure,
 .customer-support {
-  background-color: #f8fafc;
+  background-color: var(--card-bg);
   border-radius: 1rem;
   max-width: 300px;
   width: 100%;
   padding: 2rem;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background 0.25s ease, color 0.25s ease;
+  color: var(--text-color);
 }
 
 /* Responsive Design */
@@ -517,25 +553,16 @@ body {
 cursor: pointer;
 }
 
-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: #000000d2;
-  color: #3b82f6;
-  padding-top: 1rem;
-  margin-top: 1rem;
-}
+/* remove generic footer rule and rely on .footer-section for consistent styling */
 .testimonials {
   margin: 3rem auto 2rem auto;
   width: 40%;
-  background: #f8fafc;
+  background: var(--card-bg);
   border-radius: 1.2rem;
   box-shadow: 0 2px 16px rgba(44, 62, 80, 0.08);
   padding: 2rem 1.5rem;
   text-align: center;
+  color: var(--text-color);
 }
 .testimonials h2 {
   font-size: 1.5rem;
@@ -549,12 +576,12 @@ footer {
   gap: 1.2rem;
 }
 .testimonial {
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 0.8rem;
   padding: 1rem 1.2rem;
   box-shadow: 0 1px 6px rgba(44, 62, 80, 0.07);
   font-style: italic;
-  color: #374151;
+  color: var(--text-color);
   position: relative;
 }
 .testimonial span {
@@ -600,7 +627,7 @@ footer {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #f3f4f6;
+  background: var(--muted-surface);
   box-shadow: 0 1px 4px rgba(44, 62, 80, 0.07);
   transition: background 0.2s, transform 0.2s;
   overflow: hidden;
@@ -659,7 +686,7 @@ footer {
 .contact-section {
   width: 60%;
   margin: 2rem auto;
-  background: #fff;
+  background: var(--card-bg);
   padding: 1.4rem;
   border-radius: 1rem;
   box-shadow: 0 6px 24px rgba(2, 6, 23, 0.06);
@@ -690,6 +717,26 @@ footer {
   border: none;
   border-radius: 0.6rem;
   cursor: pointer;
+}
+
+/* Theme toggle button (shown in navbar) */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.theme-toggle:focus { outline: 2px solid rgba(37,99,235,0.2); }
+
+/* Ensure cards and other surfaces adapt */
+.card, .pricing-card, .feature-card, .testimonial-card, .insta-card, .tiktok-card {
+  background: var(--card-bg);
+  color: var(--text-color);
 }
 @media (max-width: 700px) {
   .testimonials {

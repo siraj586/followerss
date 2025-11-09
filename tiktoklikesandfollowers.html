@@ -4,10 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TikTok Growth Services</title>
+  <link rel="icon" type="image/png" href="624f2d3e2e292b6c9b1c0e7d_icon.png">
   <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="followers.css">
+  <link rel="icon" type="image/png" href="62faf1f1-a5a9-43ba-a03e-426de56e67fd.jpg">
+
   <link rel="stylesheet" href="tiktoklikesandfollowers.css">
+
 </head>
 <body>
 <header>
@@ -34,6 +38,9 @@
               <a class="nav-link" href="followers.html#testimonials">Testimonials</a>
             </li>
           </ul>
+          <button id="theme-toggle" class="btn theme-toggle ms-2" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+          </button>
         </div>
       </div>
     </nav>
@@ -52,27 +59,28 @@
   <!-- Features Section -->
   <section class="features-section">
     <div class="container">
-      <h2 class="text-center mb-5">Why Choose Our Service? ⭐</h2>
+      <h2 class="text-center section-title mb-2">Why Choose Our Service? ⭐</h2>
+      <p class="text-center section-subtitle mb-5">Get quality followers and engagement with our premium services</p>
       <div class="row">
         <div class="col-md-4">
           <div class="feature-card">
             <i class="fas fa-bolt display-4 mb-3"></i>
-            <h3>Fast Delivery</h3>
-            <p>Get your followers and likes delivered within minutes of purchase</p>
+            <h3 class="feature-title">Fast Delivery</h3>
+            <p class="feature-text">Get your followers and likes delivered within minutes of purchase</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="feature-card">
             <i class="fas fa-shield-alt display-4 mb-3"></i>
-            <h3>100% Safe</h3>
-            <p>Our service is completely safe and compliant with TikTok's policies</p>
+            <h3 class="feature-title">100% Safe</h3>
+            <p class="feature-text">Our service is completely safe and compliant with TikTok's policies</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="feature-card">
             <i class="fas fa-headset display-4 mb-3"></i>
-            <h3>24/7 Support</h3>
-            <p>Our customer support team is always here to help you</p>
+            <h3 class="feature-title">24/7 Support</h3>
+            <p class="feature-text">Our customer support team is always here to help you</p>
           </div>
         </div>
       </div>
@@ -161,5 +169,19 @@
   <!-- Add Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const toggle = document.getElementById('theme-toggle');
+      function setIcon(t){ if(!toggle) return; const i = toggle.querySelector('i'); if(i) i.className = t==='dark' ? 'fas fa-sun' : 'fas fa-moon'; }
+      function applyTheme(t){ root.setAttribute('data-theme', t); root.setAttribute('data-bs-theme', t==='dark' ? 'dark' : 'light'); localStorage.setItem('theme', t); setIcon(t); }
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initial = saved ? saved : (prefersDark ? 'dark' : 'light');
+      applyTheme(initial);
+      if(toggle) toggle.addEventListener('click', ()=> applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+    })();
+  </script>
 </body>
 </html>

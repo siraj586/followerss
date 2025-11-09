@@ -23,25 +23,60 @@
 /* Features Section */
 .features-section {
     padding: 5rem 0;
-    background-color: #f8f9fa;
+    background: var(--muted-surface);
+    border-top: 1px solid var(--section-divider);
+    border-bottom: 1px solid var(--section-divider);
+}
+
+.section-title {
+    color: var(--section-title-color, #1e293b);
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--tiktok-color-1), var(--tiktok-color-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.section-subtitle {
+    color: var(--section-subtitle-color, #64748b);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .feature-card {
     text-align: center;
     padding: 2rem;
-    background: white;
+    background: var(--card-bg, white);
     border-radius: 1rem;
     box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 2rem;
+    border: 1px solid var(--section-divider);
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.feature-title {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    font-weight: 600;
+}
+
+.feature-text {
+    color: var(--section-subtitle-color);
+    line-height: 1.6;
 }
 
 .feature-card i {
-    color: #FE2C55;
+    color: var(--tiktok-color-2, #FE2C55);
     margin-bottom: 1.5rem;
 }
 
@@ -53,12 +88,13 @@
 .pricing-card {
     text-align: center;
     padding: 2rem;
-    background: white;
+    background: var(--card-bg, white);
     border-radius: 1rem;
     box-shadow: 0 2px 15px rgba(0,0,0,0.05);
     position: relative;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
     margin-bottom: 2rem;
+    color: var(--text-color);
 }
 
 .pricing-card:hover {
@@ -66,7 +102,7 @@
 }
 
 .pricing-card.popular {
-    border: 2px solid #25F4EE;
+    border: 2px solid var(--tiktok-color-1, #25F4EE);
 }
 
 .popular-badge {
@@ -95,13 +131,13 @@
 
 .features-list li {
     padding: 0.5rem 0;
-    color: #666;
+    color: var(--text-color);
 }
 
 /* FAQ Section */
 .faq-section {
     padding: 5rem 0;
-    background-color: #f8f9fa;
+    background-color: var(--muted-surface, #f8f9fa);
 }
 
 .accordion-button:not(.collapsed) {

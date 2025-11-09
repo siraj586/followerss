@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grow Your Social Media Presence</title>
     <link rel="stylesheet" href="followers.css">
+<link rel="icon" type="image/png" href="62faf1f1-a5a9-43ba-a03e-426de56e67fd.jpg">
     <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -20,20 +21,23 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#features">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#services">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#testimonials">Testimonials</a>
-            </li>
-          </ul>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#features">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#services">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#testimonials">Testimonials</a>
+              </li>
+            </ul>
+            <button id="theme-toggle" class="btn theme-toggle ms-2" aria-label="Toggle dark mode" title="Toggle dark mode">
+              <i class="fas fa-moon"></i>
+            </button>
         </div>
       </div>
     </nav>
@@ -204,6 +208,36 @@
     <!-- Add Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Theme toggle script -->
+    <script>
+      (function(){
+        const root = document.documentElement;
+        const toggle = document.getElementById('theme-toggle');
+        function setIcon(t) {
+          if (!toggle) return;
+          const i = toggle.querySelector('i');
+          if (!i) return;
+          i.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+        function applyTheme(t){
+          root.setAttribute('data-theme', t);
+          root.setAttribute('data-bs-theme', t === 'dark' ? 'dark' : 'light');
+          localStorage.setItem('theme', t);
+          setIcon(t);
+        }
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initial = saved ? saved : (prefersDark ? 'dark' : 'light');
+        applyTheme(initial);
+        if (toggle) {
+          toggle.addEventListener('click', function(){
+            const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            applyTheme(next);
+          });
+        }
+      })();
+    </script>
             </div>
         </div>
     </section>
@@ -264,67 +298,6 @@
       </div>
     </footer>
     </main>
-<script src="bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
-  
-        // Prefill package field when a Buy button is clicked (include price)
-        document.addEventListener('click', function (e) {
-            const btn = e.target.closest('.buy-btn');
-            if (!btn) return;
-            const pkg = btn.dataset.package || '';
-            const price = btn.closest('.price-card')?.dataset?.price || '';
-            const pkgInput = document.getElementById('contact-package');
-            if (pkgInput) pkgInput.value = `${pkg} followers - ${price}`;
-            validateForm();
-        });
-
-        // Validation: enable submit only when all required fields are filled
-        function validateForm() {
-            const name = document.getElementById('name')?.value.trim() || '';
-            const pkg = document.getElementById('contact-package')?.value.trim() || '';
-            const submitBtn = document.getElementById('submit-btn');
-            if (!submitBtn) return;
-            submitBtn.disabled = !(name && pkg);
-        }
-
-        // wire up input listeners
-        document.addEventListener('DOMContentLoaded', function () {
-            const name = document.getElementById('name');
-            const pkgInput = document.getElementById('contact-package');
-            if (name) name.addEventListener('input', validateForm);
-            if (pkgInput) pkgInput.addEventListener('input', validateForm);
-            validateForm();
-        });
-
-        // Send form details to WhatsApp when the contact form is submitted
-        (function () {
-            const form = document.querySelector('.contact-form');
-            if (!form) return;
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const name = document.getElementById('name')?.value.trim() || '-';
-                const pkgText = document.getElementById('contact-package')?.value.trim() || '-';
-                const message = document.getElementById('message')?.value.trim() || '-';
-                // extract price from package string if present
-                const priceMatch = pkgText.match(/\$(\d+)/);
-                // const price = priceMatch ? ('$' + priceMatch[1]) : '-';
-
-                // WhatsApp number in international format (Lebanon = 961)
-                const whatsappNumber = '96171984497';
-
-                const text = encodeURIComponent(
-                    `New order from by followers.com:\nName: ${name}\nPackage: ${pkgText}\nMessage: ${message}`
-                );
-
-                // Use wa.me on mobile and web.whatsapp.com on desktop for better compatibility
-                const isMobile = /Mobi|Android/i.test(navigator.userAgent || '');
-                const url = isMobile
-                    ? `https://wa.me/${whatsappNumber}?text=${text}`
-                    : `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${text}`;
-                window.open(url, '_blank');
-            });
-        })();
-    </script> -->
-
     </body>
 
 </html>
