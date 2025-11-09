@@ -1,0 +1,168 @@
+  body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fafafa;
+    }
+
+    /* Welcome Section */
+    .welcome-section {
+      background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .welcome-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    .welcome-section p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+
+    
+    
+
+  
+  
+
+    /* Features Section */
+    .features-section {
+      padding: 5rem 0;
+      background-color: #fff;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      margin-bottom: 2rem;
+      border: 1px solid #eee;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-card i {
+      background: linear-gradient(45deg, #833ab4, #fd1d1d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Pricing Section */
+    .pricing-section {
+      padding: 5rem 0;
+      background-color: #fafafa;
+    }
+
+    .pricing-card {
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      position: relative;
+      transition: transform 0.3s ease;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .pricing-card.popular {
+      border: 2px solid #833ab4;
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: linear-gradient(45deg, #833ab4, #fd1d1d);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .price {
+      font-size: 2.5rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, #833ab4, #fd1d1d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 1rem 0;
+    }
+
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+    }
+
+    .features-list li {
+      padding: 0.5rem 0;
+      color: #666;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 5rem 0;
+      background-color: #fff;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background: linear-gradient(45deg, #833ab4, #fd1d1d);
+      color: white;
+    }
+
+    .accordion-button:focus {
+      box-shadow: 0 0 0 0.25rem rgba(131, 58, 180, 0.25);
+    }
+
+    /* Stats Section */
+    .stats-section {
+      background: linear-gradient(45deg, #833ab4, #fd1d1d);
+      color: white;
+      padding: 5rem 0;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .welcome-section h1 {
+        font-size: 2rem;
+      }
+      
+      .welcome-section p {
+        font-size: 1rem;
+      }
+
+      main {
+        padding: 1rem;
+      }
+
+      .stat-card {
+        margin-bottom: 2rem;
+      }
+    }
