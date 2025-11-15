@@ -135,7 +135,7 @@
               <li>24h Delivery</li>
               <li>Basic Support</li>
             </ul>
-            <button class="btn insta-btn w-100">Get Started</button>
+            <button class="btn insta-btn w-100" data-bs-toggle="modal" data-bs-target="#purchaseModal" data-package="Starter - $9.99">Get Started</button>
           </div>
         </div>
         <div class="col-md-4">
@@ -149,7 +149,7 @@
               <li>12h Delivery</li>
               <li>Priority Support</li>
             </ul>
-            <button class="btn insta-btn w-100">Get Started</button>
+            <button class="btn insta-btn w-100" data-bs-toggle="modal" data-bs-target="#purchaseModal" data-package="Growth - $24.99">Get Started</button>
           </div>
         </div>
         <div class="col-md-4">
@@ -162,7 +162,103 @@
               <li>6h Delivery</li>
               <li>VIP Support</li>
             </ul>
-            <button class="btn insta-btn w-100">Get Started</button>
+            <button class="btn insta-btn w-100" data-bs-toggle="modal" data-bs-target="#purchaseModal" data-package="Pro - $49.99">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blue Verification Mark Section -->
+  <section class="verification-section">
+    <div class="container">
+      <h2 class="text-center section-title mb-2">Instagram Blue Verification Mark ✓</h2>
+      <p class="text-center section-subtitle mb-5">Get verified and stand out on Instagram</p>
+      
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4">
+          <div class="verification-content">
+            <h3 class="verification-heading">What is the Blue Checkmark?</h3>
+            <p>The blue verification mark is Instagram's way of confirming that an account is the authentic presence of the public figure, celebrity, or global brand it represents. It appears next to the username and adds credibility to your profile.</p>
+            
+            <div class="verification-benefits">
+              <div class="benefit-item">
+                <i class="fas fa-check-circle"></i>
+                <div>
+                  <h4>Increased Credibility</h4>
+                  <p>Followers trust verified accounts more</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-check-circle"></i>
+                <div>
+                  <h4>Better Visibility</h4>
+                  <p>Verified accounts get prioritized in search results</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-check-circle"></i>
+                <div>
+                  <h4>Professional Image</h4>
+                  <p>Stand out as an official, legitimate account</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-check-circle"></i>
+                <div>
+                  <h4>Increased Engagement</h4>
+                  <p>Verified badges attract more followers and interactions</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="verification-card">
+            <div class="verification-demo">
+              <div class="demo-profile">
+                <div class="demo-avatar">
+                  <i class="fab fa-instagram"></i>
+                </div>
+                <div class="demo-info">
+                  <div class="demo-username">
+                    <span>Your Account Name</span>
+                    <i class="fas fa-check-circle verification-badge"></i>
+                  </div>
+                  <div class="demo-handle">@your_handle</div>
+                  <div class="demo-bio">Official Account</div>
+                </div>
+              </div>
+            </div>
+            <button class="btn verification-btn mt-4" data-bs-toggle="modal" data-bs-target="#purchaseModal" data-package="Verification - $10">Get Verified Now - $10</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="verification-requirements mt-5">
+        <h3 class="text-center mb-4">Verification Requirements</h3>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <div class="requirement-card">
+              <i class="fas fa-users"></i>
+              <h5>Minimum Followers</h5>
+              <p>At least 10,000 followers or significant media presence</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="requirement-card">
+              <i class="fas fa-check"></i>
+              <h5>Complete Profile</h5>
+              <p>Bio, profile picture, and link must be filled out</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="requirement-card">
+              <i class="fas fa-book"></i>
+              <h5>Public History</h5>
+              <p>Must have a public presence in media or news</p>
+            </div>
           </div>
         </div>
       </div>
@@ -200,13 +296,53 @@
         </div>
       </div>
     </div>
+    
   </section>
+
+  <!-- Purchase Form Modal -->
+  <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content purchase-modal-content">
+        <div class="modal-header purchase-modal-header">
+          <h5 class="modal-title" id="purchaseModalLabel">
+            <i class="fab fa-instagram"></i> Complete Your Order
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="purchaseForm">
+            <div class="mb-3">
+              <label class="form-label">Selected Package</label>
+              <div class="alert alert-warning" id="selectedPackage" role="alert">
+                <i class="fas fa-box"></i> <span id="packageName">Select a package</span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="instagramUsername" class="form-label">Instagram Username</label>
+              <div class="input-group">
+                <span class="input-group-text">@</span>
+                <input type="text" class="form-control" id="instagramUsername" placeholder="your_username" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="phoneNumber" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="phoneNumber" placeholder="+961 00 000 000" required>
+            </div>
+            <div class="alert alert-info" role="alert">
+              <i class="fas fa-info-circle"></i> We'll send the order details to your WhatsApp number
+            </div>
+            <button type="submit" class="btn btn-purchase w-100">Send to WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Add Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      (function(){
+        (function(){
         const root = document.documentElement;
         const toggle = document.getElementById('theme-toggle');
         function setIcon(t){ if(!toggle) return; const i = toggle.querySelector('i'); if(i) i.className = t==='dark' ? 'fas fa-sun' : 'fas fa-moon'; }
@@ -217,6 +353,53 @@
         applyTheme(initial);
         if(toggle) toggle.addEventListener('click', ()=> applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
       })();
+      document.addEventListener('DOMContentLoaded', function() {
+        let selectedPackage = '';
+        
+        // Get all purchase buttons
+        const purchaseButtons = document.querySelectorAll('[data-bs-toggle="modal"][data-bs-target="#purchaseModal"]');
+        
+        // Add click handlers to capture package name
+        purchaseButtons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            selectedPackage = this.getAttribute('data-package') || 'Unknown Package';
+            document.getElementById('packageName').textContent = selectedPackage;
+            document.getElementById('purchaseForm').reset();
+          });
+        });
+
+        // Handle form submission
+        const purchaseForm = document.getElementById('purchaseForm');
+        if (purchaseForm) {
+          purchaseForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('instagramUsername').value;
+            const phone = document.getElementById('phoneNumber').value;
+            
+            // Your WhatsApp number
+            const whatsappNumber = '96171984497';
+            
+            // Create message with package name
+            const message = `مرحبا، أنا أريد شراء عرض من Social Boost\n\n📦 الحزمة: ${selectedPackage}\n👤 اسم المستخدم على إنستغرام: @${username}\n📱 رقم الهاتف: ${phone}`;
+            
+            // Encode the message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Use api.whatsapp.com endpoint which includes message in the link
+            const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+            
+            // Open WhatsApp with the complete message
+            window.open(whatsappLink, '_blank');
+            
+            // Close modal
+            setTimeout(function() {
+              const modal = bootstrap.Modal.getInstance(document.getElementById('purchaseModal'));
+              if (modal) modal.hide();
+            }, 500);
+          });
+        }
+      });
     </script>
   
   </body>

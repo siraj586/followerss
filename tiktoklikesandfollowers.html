@@ -90,43 +90,44 @@
   <!-- Pricing Section -->
   <section class="pricing-section">
     <div class="container">
-      <h2 class="text-center mb-5">Choose Your Package 📦</h2>
+      <h2 class="text-center section-title mb-2">Choose Your Package 📦</h2>
+      <p class="text-center section-subtitle mb-5">Select the perfect plan for your TikTok growth</p>
       <div class="row">
         <div class="col-md-4">
           <div class="pricing-card">
-            <h3>Starter</h3>
+            <h3 class="card-title">Starter</h3>
             <div class="price">$9.99</div>
             <ul class="features-list">
               <li>1000 Followers</li>
               <li>500 Likes</li>
               <li>24h Delivery</li>
             </ul>
-            <button class="btn tiktok-btn w-100">Select Package</button>
+            <button class="btn tiktok-btn w-100" data-bs-toggle="modal" data-bs-target="#purchaseModal" data-package="Starter - $9.99">Select Package</button>
           </div>
         </div>
         <div class="col-md-4">
           <div class="pricing-card popular">
             <span class="popular-badge">Most Popular</span>
-            <h3>Premium</h3>
+            <h3 class="card-title">Premium</h3>
             <div class="price">$24.99</div>
             <ul class="features-list">
               <li>3000 Followers</li>
               <li>1500 Likes</li>
               <li>12h Delivery</li>
             </ul>
-            <button class="btn tiktok-btn w-100">Select Package</button>
+            <button class="btn tiktok-btn w-100" data-bs-toggle="modal" data-bs-target="#purchaseModal" data-package="Premium - $24.99">Select Package</button>
           </div>
         </div>
         <div class="col-md-4">
           <div class="pricing-card">
-            <h3>Pro</h3>
+            <h3 class="card-title">Pro</h3>
             <div class="price">$49.99</div>
             <ul class="features-list">
               <li>7000 Followers</li>
               <li>3500 Likes</li>
               <li>6h Delivery</li>
             </ul>
-            <button class="btn tiktok-btn w-100">Select Package</button>
+            <button class="btn tiktok-btn w-100" data-bs-toggle="modal" data-bs-target="#purchaseModal" data-package="Pro - $49.99">Select Package</button>
           </div>
         </div>
       </div>
@@ -170,8 +171,49 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 
+
+  <!-- Purchase Form Modal -->
+  <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content purchase-modal-content">
+        <div class="modal-header purchase-modal-header">
+          <h5 class="modal-title" id="purchaseModalLabel">
+            <i class="fab fa-tiktok"></i> Complete Your Order
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="purchaseForm">
+            <div class="mb-3">
+              <label class="form-label">Selected Package</label>
+              <div class="alert alert-warning" id="selectedPackage" role="alert">
+                <i class="fas fa-box"></i> <span id="packageName">Select a package</span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="tiktokUsername" class="form-label">TikTok Username</label>
+              <div class="input-group">
+                <span class="input-group-text">@</span>
+                <input type="text" class="form-control" id="tiktokUsername" placeholder="your_username" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="phoneNumber" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="phoneNumber" placeholder="+961 00 000 000" required>
+            </div>
+            <div class="alert alert-info" role="alert">
+              <i class="fas fa-info-circle"></i> We'll send the order details to your WhatsApp number
+            </div>
+            <button type="submit" class="btn btn-purchase w-100">Send to WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Purchase Form Handler -->
   <script>
-    (function(){
+      (function(){
       const root = document.documentElement;
       const toggle = document.getElementById('theme-toggle');
       function setIcon(t){ if(!toggle) return; const i = toggle.querySelector('i'); if(i) i.className = t==='dark' ? 'fas fa-sun' : 'fas fa-moon'; }
@@ -182,6 +224,53 @@
       applyTheme(initial);
       if(toggle) toggle.addEventListener('click', ()=> applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
     })();
+    document.addEventListener('DOMContentLoaded', function() {
+      let selectedPackage = '';
+      
+      // Get all purchase buttons
+      const purchaseButtons = document.querySelectorAll('[data-bs-toggle="modal"][data-bs-target="#purchaseModal"]');
+      
+      // Add click handlers to capture package name
+      purchaseButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          selectedPackage = this.getAttribute('data-package') || 'Unknown Package';
+          document.getElementById('packageName').textContent = selectedPackage;
+          document.getElementById('purchaseForm').reset();
+        });
+      });
+
+      // Handle form submission
+      const purchaseForm = document.getElementById('purchaseForm');
+      if (purchaseForm) {
+        purchaseForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const username = document.getElementById('tiktokUsername').value;
+          const phone = document.getElementById('phoneNumber').value;
+          
+          // Your WhatsApp number
+          const whatsappNumber = '96171984497';
+          
+          // Create message with package name
+          const message = `مرحبا، أنا أريد شراء عرض من Social Boost\n\n📦 الحزمة: ${selectedPackage}\n👤 اسم المستخدم على TikTok: @${username}\n📱 رقم الهاتف: ${phone}`;
+          
+          // Encode the message for URL
+          const encodedMessage = encodeURIComponent(message);
+          
+          // Use api.whatsapp.com endpoint which includes message in the link
+          const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+          
+          // Open WhatsApp with the complete message
+          window.open(whatsappLink, '_blank');
+          
+          // Close modal
+          setTimeout(function() {
+            const modal = bootstrap.Modal.getInstance(document.getElementById('purchaseModal'));
+            if (modal) modal.hide();
+          }, 500);
+        });
+      }
+    });
   </script>
 </body>
 </html>
