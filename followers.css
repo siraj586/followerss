@@ -11,18 +11,23 @@
   --text-color: #1e293b;
   --navbar-bg: #ffffff;
   --card-bg: #ffffff;
-  --page-bg: linear-gradient(180deg,#f8fafc 0%,#ffffff 100%);
+  --page-bg: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
   --footer-bg: #1e293b;
   --footer-text: #ffffff;
   --muted-surface: #f3f4f6;
   --section-title-color: var(--secondary-color);
   --section-subtitle-color: #64748b;
-  --section-divider: rgba(0,0,0,0.06);
-  --tiktok-color-1: #25F4EE;
-  --tiktok-color-2: #FE2C55;
+  --section-divider: rgba(0, 0, 0, 0.06);
+  --tiktok-color-1: #25f4ee;
+  --tiktok-color-2: #fe2c55;
   --instagram-color-1: #833ab4;
   --instagram-color-2: #fd1d1d;
   --instagram-color-3: #fcb045;
+
+}
+#github:hover{
+  background: var(--section-subtitle-color);
+  transform: scale(1.12);
 }
 
 /* Dark theme variables - applied when [data-theme="dark"] is set on <html> */
@@ -33,17 +38,17 @@
   --text-color: #e6eef8;
   --navbar-bg: #071028;
   --card-bg: #0f1630;
-  --page-bg: linear-gradient(180deg,#071028 0%,#0b1220 100%);
+  --page-bg: linear-gradient(180deg, #071028 0%, #0b1220 100%);
   --footer-bg: #071028;
   --footer-text: #94a3b8;
-  --muted-surface: rgba(255,255,255,0.03);
+  --muted-surface: rgba(255, 255, 255, 0.03);
   --section-title-color: #93c5fd; /* brighter blue for headings in dark mode */
   --section-subtitle-color: #9aaecb; /* muted light for subtitles */
-  --section-divider: rgba(255,255,255,0.04);
+  --section-divider: rgba(255, 255, 255, 0.04);
 }
 
 body {
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text-color);
   background: var(--page-bg);
   padding-top: 76px; /* Account for fixed navbar */
@@ -160,7 +165,11 @@ body {
   position: absolute;
   top: 1rem;
   right: -2rem;
-  background: linear-gradient(45deg, var(--tiktok-color-1), var(--tiktok-color-2));
+  background: linear-gradient(
+    45deg,
+    var(--tiktok-color-1),
+    var(--tiktok-color-2)
+  );
   color: white;
   padding: 0.5rem 3rem;
   transform: rotate(45deg);
@@ -203,8 +212,9 @@ body {
   padding: 2rem;
   border-radius: 1rem;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.25s ease;
-  border: 1px solid rgba(226,232,240,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.25s ease;
+  border: 1px solid rgba(226, 232, 240, 0.12);
 }
 
 .feature-card:hover {
@@ -326,17 +336,19 @@ body {
   font-size: 1.25rem;
 }
 
-.footer-links, .footer-contact {
+.footer-links,
+.footer-contact {
   list-style: none;
   padding: 0;
 }
 
-.footer-links li, .footer-contact li {
+.footer-links li,
+.footer-contact li {
   margin-bottom: 0.75rem;
 }
 
 .footer-links a {
-  color: rgba(226,232,240,0.9);
+  color: rgba(226, 232, 240, 0.9);
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -415,7 +427,8 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.insta-card:hover, .tiktok-card:hover {
+.insta-card:hover,
+.tiktok-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
@@ -439,8 +452,8 @@ body {
 }
 .insta-btn:hover {
   opacity: 0.9;
-
 }
+
 .tiktok-card {
   max-width: 360px;
   width: 100%;
@@ -550,7 +563,7 @@ body {
 .customer-support:hover,
 .secure:hover,
 .likes:hover {
-cursor: pointer;
+  cursor: pointer;
 }
 
 /* remove generic footer rule and rely on .footer-section for consistent styling */
@@ -729,12 +742,19 @@ cursor: pointer;
   border-radius: 8px;
   background: transparent;
   color: var(--text-color);
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
-.theme-toggle:focus { outline: 2px solid rgba(37,99,235,0.2); }
+.theme-toggle:focus {
+  outline: 2px solid rgba(37, 99, 235, 0.2);
+}
 
 /* Ensure cards and other surfaces adapt */
-.card, .pricing-card, .feature-card, .testimonial-card, .insta-card, .tiktok-card {
+.card,
+.pricing-card,
+.feature-card,
+.testimonial-card,
+.insta-card,
+.tiktok-card {
   background: var(--card-bg);
   color: var(--text-color);
 }
